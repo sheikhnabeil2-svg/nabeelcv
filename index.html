@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nabeel Sheikh – Battery Service Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    /* Skill bar animation */
+    .skill-bar {
+      position: relative;
+      height: 10px;
+      border-radius: 5px;
+      background-color: #e2e8f0;
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      width: 0;
+      background-color: #3b82f6;
+      border-radius: 5px;
+      animation: fillBar 2s forwards;
+    }
+    @keyframes fillBar {
+      to { width: var(--fill); }
+    }
+    /* Scroll animation fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <script>
+    // Dark/Light Mode Toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+
+      // Scroll animation
+      const faders = document.querySelectorAll('.fade-in');
+      const appearOptions = { threshold: 0.2 };
+      const appearOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        });
+      }, appearOptions);
+
+      faders.forEach(fader => appearOnScroll.observe(fader));
+    });
+  </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 font-sans">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
+    <h1 class="text-2xl font-bold">Nabeel Sheikh</h1>
+    <div>
+      <button onclick="toggleTheme()" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition">Toggle Theme</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-center py-16 bg-gradient-to-r from-blue-500 to-indigo-600 text-white fade-in">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-[fade_2s]">Battery Service Engineer & EV Specialist</h2>
+    <p class="max-w-xl mx-auto mb-6 text-lg">Experienced in Lithium-Ion Battery Systems, EV Two-Wheelers, BMS Diagnostics, CAN & UART Analysis, EV Motor & Charger Troubleshooting, and Vehicle Harness Diagnostics.</p>
+    <div class="flex justify-center gap-4 mt-4">
+      <!-- Updated CV Download -->
+      <a href="files/Nabeel_Sheikh_CV.pdf" download class="px-6 py-3 bg-white text-blue-600 rounded font-semibold hover:bg-gray-100 transition">Download CV</a>
+      <a href="https://www.linkedin.com/in/sheikhnabeil" target="_blank" class="px-6 py-3 bg-gray-800 text-white rounded font-semibold hover:bg-gray-900 transition">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="max-w-4xl mx-auto py-12 px-6">
+    <h3 class="text-3xl font-semibold mb-8 text-center">Experience</h3>
+    <div class="space-y-6 fade-in">
+      <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded shadow hover:shadow-lg transition">
+        <div class="flex items-center gap-2 mb-2"><i data-feather="briefcase"></i><h4 class="font-bold text-xl">Battery Service Engineer – Dubai, UAE (2025–Present)</h4></div>
+        <ul class="list-disc ml-6 mt-2">
+          <li>Diagnostics, maintenance, and repair of EV battery systems and chargers.</li>
+          <li>BMS and CAN/UART data analysis for fault detection and optimization.</li>
+          <li>EV motor troubleshooting and vehicle harness diagnostics.</li>
+        </ul>
+      </div>
+      <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded shadow hover:shadow-lg transition">
+        <div class="flex items-center gap-2 mb-2"><i data-feather="briefcase"></i><h4 class="font-bold text-xl">Senior Battery Technician – Spiro, Togo (2023–2025)</h4></div>
+        <ul class="list-disc ml-6 mt-2">
+          <li>Field service and battery maintenance for commercial EV fleets.</li>
+          <li>Quality checks, testing, and repair of lithium-ion batteries.</li>
+        </ul>
+      </div>
+      <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded shadow hover:shadow-lg transition">
+        <div class="flex items-center gap-2 mb-2"><i data-feather="briefcase"></i><h4 class="font-bold text-xl">Battery Repair Technician – Sun Mobility, India (2022–2023)</h4></div>
+        <ul class="list-disc ml-6 mt-2">
+          <li>Battery assembly, diagnostics, and repair for EV two-wheelers.</li>
+          <li>Performed battery QA and troubleshooting with BMS & CAN analysis.</li>
+        </ul>
+      </div>
+      <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded shadow hover:shadow-lg transition">
+        <div class="flex items-center gap-2 mb-2"><i data-feather="briefcase"></i><h4 class="font-bold text-xl">Assembly Operator – Ather Energy, India (2020–2022)</h4></div>
+        <ul class="list-disc ml-6 mt-2">
+          <li>Assembled and tested EV components including motors and battery packs.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="bg-gray-100 dark:bg-gray-800 py-12">
+    <div class="max-w-4xl mx-auto px-6 fade-in">
+      <h3 class="text-3xl font-semibold mb-8 text-center">Skills</h3>
+      <div class="space-y-6">
+        <div>
+          <h4 class="font-bold mb-1 flex items-center gap-2"><i data-feather="battery"></i> Battery Systems</h4>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill:90%"></div></div>
+        </div>
+        <div>
+          <h4 class="font-bold mb-1 flex items-center gap-2"><i data-feather="zap"></i> EV Chargers</h4>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill:85%"></div></div>
+        </div>
+        <div>
+          <h4 class="font-bold mb-1 flex items-center gap-2"><i data-feather="cpu"></i> Vehicle Electronics</h4>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill:80%"></div></div>
+        </div>
+        <div>
+          <h4 class="font-bold mb-1 flex items-center gap-2"><i data-feather="tool"></i> Tools & Software</h4>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill:85%"></div></div>
+        </div>
+        <div>
+          <h4 class="font-bold mb-1 flex items-center gap-2"><i data-feather="users"></i> Soft Skills</h4>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--fill:75%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="max-w-4xl mx-auto py-12 px-6 fade-in">
+    <h3 class="text-3xl font-semibold mb-6 text-center">Education & Certifications</h3>
+    <ul class="list-disc ml-6 space-y-2">
+      <li>Diploma in Electronics & Communication Engineering (2024)</li>
+      <li>ITI Electronics Mechanic (2019)</li>
+      <li>EV & Battery System Certifications</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="bg-gray-100 dark:bg-gray-800 py-12 text-center fade-in">
+    <h3 class="text-3xl font-semibold mb-6">Contact Me</h3>
+    <p class="flex justify-center items-center gap-2"><i data-feather="mail"></i> <a href="mailto:nabeel@example.com" class="text-blue-600 dark:text-blue-400 hover:underline">nabeel@example.com</a></p>
+    <p class="flex justify-center items-center gap-2 mt-2"><i data-feather="map-pin"></i> Dubai, UAE</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 border-t border-gray-200 dark:border-gray-700">
+    &copy; 2025 Nabeel Sheikh. All Rights Reserved.
+  </footer>
+
+  <script>feather.replace()</script>
+</body>
+</html>
